@@ -11,6 +11,14 @@ SYSTEMS_PER_FILE = 100
 TOTAL_FILES = 14
 OUTPUT_DIR = "/Users/abarbaro/code/perf-catalog"
 
+# Minimal OpenAPI spec for APIs
+def generate_api_spec(title):
+    return f"""openapi: "3.0.0"
+    info:
+      title: {title}
+      version: "1.0.0"
+    paths: {{}}"""
+
 # Template for a single system with 36 entities
 def generate_system(system_idx):
     """Generate one complete system with all its entities (36 total)"""
@@ -318,6 +326,12 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
+  definition:
+    openapi: "3.0.0"
+    info:
+      title: Petstore API
+      version: "1.0.0"
+    paths: {{}}
 
 ---
 # API 2: User Management API
@@ -332,11 +346,11 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
-  definition: |
-    openapi: 3.0.0
+  definition:
+    openapi: "3.0.0"
     info:
       title: User Management API
-      version: 1.0.0
+      version: "1.0.0"
     paths: {{}}
 
 ---
@@ -352,11 +366,11 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
-  definition: |
-    openapi: 3.0.0
+  definition:
+    openapi: "3.0.0"
     info:
       title: Authentication API
-      version: 1.0.0
+      version: "1.0.0"
     paths: {{}}
 
 ---
@@ -372,11 +386,11 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
-  definition: |
-    openapi: 3.0.0
+  definition:
+    openapi: "3.0.0"
     info:
       title: Catalog API
-      version: 1.0.0
+      version: "1.0.0"
     paths: {{}}
 
 ---
@@ -392,11 +406,11 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
-  definition: |
-    openapi: 3.0.0
+  definition:
+    openapi: "3.0.0"
     info:
       title: Notification API
-      version: 1.0.0
+      version: "1.0.0"
     paths: {{}}
 
 ---
@@ -412,11 +426,11 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
-  definition: |
-    openapi: 3.0.0
+  definition:
+    openapi: "3.0.0"
     info:
       title: Metrics API
-      version: 1.0.0
+      version: "1.0.0"
     paths: {{}}
 
 ---
@@ -432,11 +446,11 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
-  definition: |
-    openapi: 3.0.0
+  definition:
+    openapi: "3.0.0"
     info:
       title: Workflow API
-      version: 1.0.0
+      version: "1.0.0"
     paths: {{}}
 
 ---
@@ -452,11 +466,11 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
-  definition: |
-    openapi: 3.0.0
+  definition:
+    openapi: "3.0.0"
     info:
       title: Search API
-      version: 1.0.0
+      version: "1.0.0"
     paths: {{}}
 
 ---
@@ -472,11 +486,11 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
-  definition: |
-    openapi: 3.0.0
+  definition:
+    openapi: "3.0.0"
     info:
       title: Reporting API
-      version: 1.0.0
+      version: "1.0.0"
     paths: {{}}
 
 ---
@@ -492,11 +506,11 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
-  definition: |
-    openapi: 3.0.0
+  definition:
+    openapi: "3.0.0"
     info:
       title: Deployment API
-      version: 1.0.0
+      version: "1.0.0"
     paths: {{}}
 
 ---
