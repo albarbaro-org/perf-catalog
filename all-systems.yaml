@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: perf-test-catalog
+  description: Performance testing catalog with 50,400 entities across 1,400 systems
+  annotations:
+    backstage.io/managed-by-location: url:file:///Users/abarbaro/code/perf-catalog/all-systems.yaml
+spec:
+  targets:
+    - ./bulk-test-systems-000.yaml
+    - ./bulk-test-systems-001.yaml
+    - ./bulk-test-systems-002.yaml
+    - ./bulk-test-systems-003.yaml
+    - ./bulk-test-systems-004.yaml
+    - ./bulk-test-systems-005.yaml
+    - ./bulk-test-systems-006.yaml
+    - ./bulk-test-systems-007.yaml
+    - ./bulk-test-systems-008.yaml
+    - ./bulk-test-systems-009.yaml
+    - ./bulk-test-systems-010.yaml
+    - ./bulk-test-systems-011.yaml
+    - ./bulk-test-systems-012.yaml
+    - ./bulk-test-systems-013.yaml
