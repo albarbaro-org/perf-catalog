@@ -332,6 +332,12 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: User Management API
+      version: 1.0.0
+    paths: {{}}
 
 ---
 # API 3: Authentication API
@@ -346,6 +352,12 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Authentication API
+      version: 1.0.0
+    paths: {{}}
 
 ---
 # API 4: Catalog API
@@ -360,6 +372,12 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Catalog API
+      version: 1.0.0
+    paths: {{}}
 
 ---
 # API 5: Notification API
@@ -374,6 +392,12 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Notification API
+      version: 1.0.0
+    paths: {{}}
 
 ---
 # API 6: Metrics API
@@ -388,6 +412,12 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Metrics API
+      version: 1.0.0
+    paths: {{}}
 
 ---
 # API 7: Workflow API
@@ -402,6 +432,12 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Workflow API
+      version: 1.0.0
+    paths: {{}}
 
 ---
 # API 8: Search API
@@ -416,6 +452,12 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Search API
+      version: 1.0.0
+    paths: {{}}
 
 ---
 # API 9: Reporting API
@@ -430,6 +472,12 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Reporting API
+      version: 1.0.0
+    paths: {{}}
 
 ---
 # API 10: Deployment API
@@ -444,6 +492,12 @@ spec:
   system: janus-idp-{system_idx}
   owner: group-{system_idx % 100}
   lifecycle: production
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Deployment API
+      version: 1.0.0
+    paths: {{}}
 
 ---
 # Component 1: Red Hat Developer Hub
