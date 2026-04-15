@@ -1,0 +1,193 @@
+# Complete Backstage Catalog System Template
+# System, Resources, APIs, and Components
+# Groups are ingested from LDAP separately
+
+---
+# System Definition
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: janus-idp-0
+  title: Janus-IDP-0
+spec:
+  owner: group-0
+
+---
+# Resource: PostgreSQL Database
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pgdb-0
+  title: PostgreSQL cluster 0
+  description: PostgreSQL is a powerful, open source object-relational database system. PostgreSQL cluster is created by Crunchy Postgres for Kubernetes operator. We use Postgres as the database for this showcase.
+  links:
+    - url: https://www.crunchydata.com/products/crunchy-high-availability-postgresql
+      title: Crunchy product pages
+      icon: web
+    - url: https://access.crunchydata.com/documentation/postgres-operator/v5/
+      title: Documentation
+      icon: web
+spec:
+  type: database
+  lifecycle: production
+  owner: group-0
+  system: janus-idp-0
+
+---
+# Resource: Keycloak Identity Provider
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: keycloak-0
+  title: KeyCloak 0
+  description: Keycloak is an open source software product to allow single sign-on with identity and access management aimed at modern applications and services. We use keycloak in this showcase.
+  links:
+    - url: https://www.keycloak.org/documentation
+      title: Documentation
+      icon: web
+spec:
+  type: identity-provider
+  lifecycle: production
+  owner: group-0
+  system: janus-idp-0
+
+---
+# Resource: ArgoCD
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: argocd-0
+  title: ArgoCD 0
+  description: Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. We use ArgoCD for the deployment of this showcase.
+  links:
+    - url: https://argocd.operate-first.cloud/
+      title: Instance of ArgoCD
+      icon: web
+    - url: https://argo-cd.readthedocs.io/en/stable/
+      title: Documentation
+      icon: web
+spec:
+  type: deployment-tool
+  lifecycle: production
+  owner: group-0
+  system: janus-idp-0
+
+---
+# Resource: S3 Object Storage
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: obc-0
+  title: S3 Object bucket storage 0
+  description: Amazon Simple Storage Service used for storing our built techdocs.
+  links:
+    - url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html
+      title: Documentation
+      icon: web
+spec:
+  type: s3-bucket
+  lifecycle: production
+  owner: group-0
+  system: janus-idp-0
+
+---
+# Resource: GitHub Repository
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: github-0
+  title: GitHub Showcase repository 0
+  description: We store our deployment manifests and code for the janus showcase in this GitHub repository.
+  links:
+    - url: https://github.com/redhat-developer/rhdh
+      title: GitHub Repository
+      icon: web
+spec:
+  type: repository
+  lifecycle: production
+  owner: group-0
+  system: janus-idp-0
+
+---
+# API: Petstore
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: petstore-0
+  title: Petstore 0
+  description: |
+    This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about
+    Swagger at [https://swagger.io](https://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!
+    You can now help us improve the API whether it's by making changes to the definition itself or to the code.
+    That way, with time, we can improve the API in general, and expose some of the new features in OAS3.
+  links:
+    - title: Petstore
+      url: https://petstore3.swagger.io/
+    - title: Petstore API
+      url: https://petstore3.swagger.io/api/v3/openapi.json
+spec:
+  type: openapi
+  system: janus-idp-0
+  owner: group-0
+  lifecycle: production
+  definition:
+    $openapi: https://github.com/OAI/learn.openapis.org/blob/main/examples/v3.0/petstore.yaml
+
+---
+# API: Nexus Repository Manager
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: nexus-repo-manager-3-0
+  title: Nexus Repository Manager 3 API 0
+  description: Nexus Repository Manager 3 provides a REST API for integration and automation
+  links:
+    - title: Nexus Repository Manager
+      url: https://www.sonatype.com/products/repository-oss
+    - title: API Documentation
+      url: https://help.sonatype.com/repomanager3/integrations/rest-and-integration-api
+spec:
+  type: openapi
+  system: janus-idp-0
+  owner: group-0
+  lifecycle: production
+  definition:
+    $text: https://raw.githubusercontent.com/sonatype/nexus-public/main/plugins/nexus-coreui-plugin/src/main/resources/static/rapture/NX/coreui/controller/Api.js
+
+---
+# Component: Red Hat Developer Hub
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: red-hat-developer-hub-0
+  title: Red Hat Developer Hub 0
+  description: |-
+    A Red Hat supported version of Backstage, available as container image. Includes pre-built plug-ins, settings, and deployment details, to help streamline setting up a self-managed internal developer portal for new adopters
+  links:
+    - title: About RHDH
+      url: https://developers.redhat.com/rhdh
+    - title: RHDH Documentation
+      url: https://docs.redhat.com/en/documentation/red_hat_developer_hub/
+    - title: Blog
+      url: https://janus-idp.io/blog
+    - title: Backstage Discord
+      url: https://discord.com/servers/backstage-687207715902193673
+  annotations:
+    argocd/app-name: 'janus-idp-0'
+    backstage.io/kubernetes-id: 'janus-idp-0'
+    github.com/project-slug: redhat-developer/rhdh
+    quay.io/repository-slug: rhdh-community/rhdh
+    backstage.io/techdocs-ref: url:https://github.com/redhat-developer/rhdh
+    backstage.io/kubernetes-namespace: janus-idp-prod
+    sonarqube.org/project-key: janus-idp_backstage-showcase
+spec:
+  type: website
+  system: janus-idp-0
+  owner: group-0
+  lifecycle: production
+  dependsOn:
+    - resource:pgdb-0
+    - resource:argocd-0
+    - resource:obc-0
+    - resource:keycloak-0
+    - resource:github-0
