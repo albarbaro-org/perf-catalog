@@ -6,7 +6,7 @@ Generate Backstage catalog from template by string replacement.
 import os
 
 SYSTEMS_PER_FILE = 100
-TOTAL_FILES = 14
+TOTAL_FILES = 56  # 56 files × 100 systems × 9 entities = 50,400 entities
 OUTPUT_DIR = "/Users/abarbaro/code/perf-catalog"
 TEMPLATE_FILE = os.path.join(OUTPUT_DIR, "system-template-test-0.yaml")
 
